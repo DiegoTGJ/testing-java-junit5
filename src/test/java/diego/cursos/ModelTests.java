@@ -5,11 +5,12 @@ import org.junit.jupiter.api.RepetitionInfo;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.TestInfo;
 
+
 @Tag("model")
 public interface ModelTests {
-    @BeforeEach
-    default  void setUp(TestInfo testInfo, RepetitionInfo repetitionInfo){
-        System.out.println("name: "+testInfo.getDisplayName()+" Iteration: "+repetitionInfo.getCurrentRepetition());
-    }
 
+    @BeforeEach
+    default  void beforeEachConsoleOutPutter(TestInfo testInfo){
+        System.out.println("Running Test - "+testInfo.getDisplayName());
+    }
 }
