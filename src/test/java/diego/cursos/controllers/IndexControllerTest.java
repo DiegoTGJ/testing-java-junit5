@@ -1,5 +1,6 @@
 package diego.cursos.controllers;
 
+import diego.cursos.exceptions.ValueNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,16 +21,16 @@ class IndexControllerTest {
     void index() {
         assertEquals("index", controller.index());
         assertEquals("index", controller.index(), "Wrong View Returned");
-        assertEquals("index", controller.index(), () -> "Another Expensive Message"+
+        assertEquals("index", controller.index(), () -> "Another Expensive Message" +
                 "Make me only if you have to"
         );
     }
+
     @DisplayName("Test exception")
     @Test
-    void oupsHandler() {
-        assertTrue("notimplemented".equals(controller.oupsHandler()), () -> "This is some expensive" +
-                "Message to build" +
-                "for my test"
-        );
+    void oopsHandler() {
+        assertThrows(ValueNotFoundException.class, () -> {
+            controller.oopsHandler();
+        });
     }
 }
