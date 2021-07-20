@@ -1,5 +1,6 @@
 package diego.cursos.controllers;
 
+import diego.cursos.ControllerTests;
 import diego.cursos.fauxspring.Model;
 import diego.cursos.fauxspring.ModelMapImpl;
 import diego.cursos.model.Vet;
@@ -13,7 +14,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class VetControllerTest {
+class VetControllerTest implements ControllerTests {
 
     VetController vetController;
     VetService vetService;
