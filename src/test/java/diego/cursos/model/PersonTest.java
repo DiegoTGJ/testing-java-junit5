@@ -11,7 +11,7 @@ class PersonTest implements ModelTests {
     @Test
     void groupedAssertions() {
         //given
-        Person person = new Person(1l,"Joe","Buck");
+        Person person = new Person(1L,"Joe","Buck");
         //then
         assertAll("Test Props Set",
                 () -> assertEquals("Joe", person.getFirstName()),
@@ -23,7 +23,7 @@ class PersonTest implements ModelTests {
     @Test
     void groupedAssertionMsgs() {
         //given
-        Person person = new Person(1l,"Joe","Buck");
+        Person person = new Person(1L,"Joe","Buck");
         //then
         assertAll("Test Props Set",
                 () -> assertEquals("Joe", person.getFirstName(), "First Name Failed"),
