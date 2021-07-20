@@ -2,8 +2,11 @@ package diego.cursos.controllers;
 
 import diego.cursos.exceptions.ValueNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,6 +34,27 @@ class IndexControllerTest {
     void oopsHandler() {
         assertThrows(ValueNotFoundException.class, () -> {
             controller.oopsHandler();
+        });
+    }
+
+    @Disabled("Demo of timeout")
+    @Test
+    void testTimeOut(){
+
+        assertTimeout(Duration.ofMillis(100), () -> {
+            Thread.sleep(5000);
+
+            System.out.println("I got here");
+        });
+    }
+    @Disabled("Demo of timeout")
+    @Test
+    void testTimeOutPreempt(){
+
+        assertTimeoutPreemptively(Duration.ofMillis(100), () -> {
+            Thread.sleep(5000);
+
+            System.out.println("I got here -------------------------");
         });
     }
 }
