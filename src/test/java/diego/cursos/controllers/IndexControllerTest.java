@@ -1,6 +1,7 @@
 package diego.cursos.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,6 +15,7 @@ class IndexControllerTest {
         controller = new IndexController();
     }
 
+    @DisplayName("Test proper view name is returned for index page")
     @Test
     void index() {
         assertEquals("index", controller.index());
@@ -22,7 +24,7 @@ class IndexControllerTest {
                 "Make me only if you have to"
         );
     }
-
+    @DisplayName("Test exception")
     @Test
     void oupsHandler() {
         assertTrue("notimplemented".equals(controller.oupsHandler()), () -> "This is some expensive" +
