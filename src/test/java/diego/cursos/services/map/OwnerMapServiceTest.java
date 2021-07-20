@@ -82,7 +82,7 @@ class OwnerMapServiceTest {
                 void testFindOwner() {
                     Owner foundOwner = ownerMapService.findById(1L);
 
-                    assertNotEquals(null, foundOwner);
+                    assertNotNull(foundOwner);
                 }
 
                 @DisplayName("Find Owner Not Found")
@@ -90,7 +90,7 @@ class OwnerMapServiceTest {
                 void testFindOwnerNotFound() {
                     Owner foundOwner = ownerMapService.findById(2L);
 
-                    assertEquals(null, foundOwner);
+                    assertNull(foundOwner);
                 }
             }
         }
