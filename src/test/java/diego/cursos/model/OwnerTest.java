@@ -1,5 +1,6 @@
 package diego.cursos.model;
 
+import diego.cursos.CustomArgsProvider;
 import diego.cursos.ModelTests;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -75,4 +76,12 @@ class OwnerTest implements ModelTests {
                          Arguments.of("OH", 1, 12),
                          Arguments.of("CL", 133, 113));
     }
+
+    @DisplayName("Custom Provider Test")
+    @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
+    @ArgumentsSource(CustomArgsProvider.class)
+    void FromCustomArgProviderTest(String stateName, int val1, int val2) {
+        System.out.println(stateName+" = "+val1+":"+val2);
+    }
+
 }
